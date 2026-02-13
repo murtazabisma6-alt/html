@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow: hidden;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    color: red; /* Valentine’s Day text clearly red */
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.yes {
+    background: #ff4d6d;
+    color: white;
+}
+
+.no {
+    background: gray;
+    color: white;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.message {
+    color: white;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.message h1 {
+    font-size: 50px;
+}
+
+.message h2 {
+    font-size: 35px;
+}
+
+/* Popper/celebration animation */
+.popper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    opacity: 0;
+    animation: pop 1s forwards;
+}
+
+@keyframes pop {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1) opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Will You Be My Valentine? 💖</h1>
+    <button class="yes" onclick="showLove()">Yes 💕</button>
+    <button class="no" onmouseover="moveButton()">No 😅</button>
+</div>
+
+<script>
+function showLove() {
+    // Show love message
+    document.body.innerHTML = `
+        <div class="message">
+            <h1>Happy Valentine's Day 💖</h1>
+            <h2>I Love You ❤️</h2>
+        </div>
+    `;
+    document.body.style.background = "linear-gradient(135deg, #ff9a9e, #ff4d6d)";
+
+    // Popper/celebration animation
+    const pop = document.createElement('div');
+    pop.classList.add('popper');
+    pop.textContent = '🎉 Celebrate! 🎉';
+    document.body.appendChild(pop);
+
+    setTimeout(() => {
+        pop.remove();
+    }, 1000);
+}
+
+function moveButton() {
+    const btn = document.querySelector(".no");
+    btn.style.position = "absolute";
+    btn.style.top = Math.random() * window.innerHeight + "px";
+    btn.style.left = Math.random() * window.innerWidth + "px";
+}
+</script>
+
+</body>
+</html>
